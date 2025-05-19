@@ -1,5 +1,4 @@
 ---
-import logo from '~/assets/astro-logo.svg?raw';
 import docs from '~/assets/docs.svg?raw';
 import type { Props } from '@astrojs/starlight/props';
 
@@ -8,7 +7,9 @@ const self = '/' + (Astro.props.locale || 'en') + '/getting-started/';
 ---
 
 <span class="site-title sl-flex">
-	<a class="astro-logo" href={main} set:html={logo} aria-label="Astro" />
+	<a class="flexicms-logo" href={main} aria-label="FlexiCMS">
+			<span class="flip-letter">F</span>lexi<span class="font-weight-600">CMS</span>
+	</a>
 	<a class="docs-logo" href={self} set:html={docs} aria-label="Docs" />
 </span>
 
@@ -19,9 +20,24 @@ const self = '/' + (Astro.props.locale || 'en') + '/getting-started/';
 	.site-title a {
 		display: flex;
 	}
-	.astro-logo {
+	.flexicms-logo {
 		color: var(--sl-color-white);
+		font-family: sans-serif;
+		font-size: var(--sl-text-3xl);
+		align-items: center;
+		text-decoration: none;
+
+		.flip-letter {
+			display: inline-flex;
+			transform: scaleX(-1);
+			position: relative;
+		}
 	}
+
+	.font-weight-600 {
+		font-weight: 600;
+	}
+
 	.docs-logo {
 		color: var(--sl-color-text-accent);
 	}
