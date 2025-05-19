@@ -15,16 +15,15 @@ export const sidebar = [
 		items: [
 			'getting-started',
 			group('start.welcome', {
-				items: ['concepts/what-is-flexicms', 'concepts/islands', 'tutorial/0-introduction'],
+				items: ['concepts/what-is-flexicms', 'concepts/headless'],
 			}),
 			group('start.newProject', {
-				items: ['install-and-setup', 'basics/project-structure', 'develop-and-build'],
+				items: ['install-and-setup', 'basics/project-structure'],
 			}),
 			group('start.config', {
 				items: [
-					'guides/configuring-astro',
-					'editor-setup',
-					'guides/typescript',
+					'guides/configuring-flexicms',
+					// 'guides/typescript',
 					'guides/environment-variables',
 				],
 			})
