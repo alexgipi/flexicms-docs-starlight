@@ -79,8 +79,7 @@ export const starlightPluginLlmsTxt = () =>
 			'en/concepts/islands',
 			'en/install-and-setup',
 			'en/basics/project-structure',
-			'en/develop-and-build',
-			'en/guides/configuring-astro',
+			'en/guides/configuring-flexicms',
 		],
 
 		// Exclude pages from the abridged `llms-small.txt` file designed for smaller context windows.
