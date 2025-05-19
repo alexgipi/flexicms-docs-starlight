@@ -1,0 +1,78 @@
+---
+title: Headless Architecture
+description: Discover how Astro's Headless Architecture contributes to faster websites.
+i18nReady: true
+---
+
+## Introduction
+
+Headless architecture has radically transformed the way content is managed and consumed in web and application development. Unlike traditional systems where the backend and frontend are tightly integrated, the Headless approach proposes a complete separation between content management and its presentation.
+
+This separation allows the same content to be delivered consistently across multiple channels: websites, mobile apps, smart devices, TV applications, and more.
+
+## Origin and Evolution
+
+For years, traditional Content Management Systems (CMS) offered an all-in-one solution: content was created, stored, and displayed from the same environment. Platforms like WordPress or Drupal were born with this monolithic approach, which was useful for a web focused exclusively on desktop browsing.
+
+With the rise of mobile devices, the Internet of Things (IoT), native applications, and dynamic web, this model began to show its limitations. Developers needed greater flexibility to present content across diverse interfaces, and that's when the Headless model emerged as a modern alternative.
+
+## What is a Headless CMS?
+
+In a Headless CMS, the user interface for content (the "frontend") is not integrated. The system is solely responsible for managing, storing, and exposing data through an API, leaving the developer to decide how and where to display that information.
+
+This means all content—text, images, metadata, settings—is queried from any client application via HTTP requests. The CMS no longer controls how content is presented; instead, it becomes a centralized data source.
+
+## Advantages of the Headless Approach
+
+### Separation of Responsibilities
+
+The architecture promotes a clear separation between the content team and the development team. Editors can work in a centralized environment without interfering with frontend logic or design, while developers have the freedom to choose the architecture, language, or framework that best suits the project.
+
+### Multi-Channel Distribution
+
+The same content can be reused across different platforms without duplication or rewriting. From a single source, a corporate website, mobile app, desktop application, and digital signage display can all be fed, maintaining consistency throughout.
+
+### Technological Independence
+
+Without relying on the presentation system, developers can use different frontend technologies based on project needs, free from CMS restrictions. Frameworks like Astro, Next.js, Nuxt, Angular, or SvelteKit allow for optimized frontends, rendered statically or dynamically as needed.
+
+This freedom fosters innovation and progressive technological evolution.
+
+### Scalability and Performance
+
+Delivering content via APIs enables services to be scaled separately, responses to be cached, content to be distributed via CDNs, and overall system performance to be optimized—both on the backend and client sides.
+
+### Security
+
+Without a direct presentation layer, the CMS's attack surface is reduced. Public interfaces are not directly exposed to the admin panel, improving overall system security.
+
+## Considerations and Disadvantages
+
+### Initial Complexity
+
+This type of architecture requires greater technical investment upfront. The presentation layer must be built from scratch, API consumption configured, and processes established for routing, SEO, internationalization, and more.
+
+### Requires Custom Development
+
+Unlike traditional CMSs, which include pre-built themes, plugins, and tools, a Headless CMS demands custom solutions for each project. This means more development time and resources in early stages.
+
+### API Dependency
+
+System performance heavily relies on the quality, stability, and response speed of the CMS API. Poor data architecture or weak infrastructure can directly impact all connected clients.
+
+### Preview and Workflow Management
+
+Implementing features like content previews, scheduled publishing, or approval workflows requires additional planning. These functions, which come built-in with traditional CMSs, must be custom-designed or integrated separately.
+
+## Most Common Use Cases
+
+- Platforms with multiple content access points (web, mobile, physical devices).
+- Projects requiring a centralized and consistent content strategy across different interfaces.
+- Technical teams prioritizing performance, flexibility, and full control over the frontend.
+- Custom applications with specific design or behavioral needs that don’t fit a monolithic CMS.
+
+## Conclusion
+
+Headless architecture represents a natural evolution toward a more flexible, scalable, and future-proof model for today's digital ecosystem. It allows user experiences to be tailored precisely to each channel while maintaining a centralized and coherent content system.
+
+Although it requires more technical expertise and planning, its benefits in terms of freedom, control, performance, and scalability make it a preferred choice in many professional environments and modern projects. For developers and teams seeking technological independence and long-term vision, the Headless approach is not only viable but recommended.
