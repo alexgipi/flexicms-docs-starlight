@@ -1,0 +1,84 @@
+---
+title: Configuración de FlexiCMS
+i18nReady: true
+---------------
+
+FlexiCMS se configura desde un archivo JavaScript llamado `flexi.config.js`, ubicado en la raíz del proyecto. Este archivo define las colecciones de datos, los ajustes globales, las configuraciones del administrador y más. Es el punto central desde donde personalizas el comportamiento de tu instancia de FlexiCMS.
+
+## Estructura básica del archivo `flexi.config.js`
+
+A continuación, un ejemplo simplificado de archivo de configuración que incluye las colecciones y ajustes más comunes:
+
+```js title="flexi.config.js"
+import { Users } from './collections/Users/Users.js';
+import { PagesCollection } from './collections/Pages/PagesCollection.js';
+import Posts from './collections/Posts.js';
+import { Media } from './collections/Media.js';
+import EmailSettings from './settings/EmailSettings.js';
+import HomePage from './collections/globals/HomePage.js';
+
+export const flexiConfig = {
+  collections: [
+    Users,
+    PagesCollection,
+    Posts,
+    Media,
+  ],
+  settings: [
+    EmailSettings
+  ],
+  globals: [
+    HomePage
+  ],
+  adminChangesEnabled: true,
+  ssgDeployEnabled: true,
+}
+```
+
+## Propiedades del objeto `flexiConfig`
+
+### `collections`
+
+Array de colecciones de contenido del sistema. Cada colección define un tipo de contenido (usuarios, páginas, posts, medios, etc.). Es el corazón de la base de datos del CMS.
+
+**Ejemplo:**
+
+```js
+collections: [Users, PagesCollection, Posts, Media]
+```
+
+### `settings`
+
+Array de configuraciones del sistema que se editan desde el panel de administrador. Suelen representar parámetros clave como ajustes de correo, despliegue, idioma, etc.
+
+**Ejemplo:**
+
+```js
+settings: [EmailSettings]
+```
+
+### `globals`
+
+Array de colecciones globales. Se trata de contenidos únicos que no pertenecen a una colección repetible (por ejemplo, la página de inicio, el header o el footer).
+
+**Ejemplo:**
+
+```js
+globals: [HomePage]
+```
+
+### `adminChanges`
+
+Objeto que define cómo se gestionan y registran los cambios realizados desde el panel de administración. Incluye permisos, etiquetas multilingües y plantillas de mensajes de log.
+
+### `adminChangesEnabled`
+
+`true` o `false`. Activa o desactiva el historial de cambios del administrador.
+
+### `ssgDeployEnabled`
+
+`true` o `false`. Habilita el soporte para despliegue con Static Site Generation (SSG) si tu frontend lo soporta.
+
+---
+
+Para más información sobre cómo definir colecciones, configuraciones o contenido global, consulta las secciones correspondientes de la documentación.
