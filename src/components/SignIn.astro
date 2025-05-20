@@ -1,0 +1,21 @@
+---
+import Default from '@astrojs/starlight/components/SocialIcons.astro';
+---
+
+<button class="sign-in-button">Login</button>
+<Default><slot /></Default>
+<style>
+    .sign-in-button {        
+        padding-inline: 17px;
+        border-radius: 28px;
+        border: none;
+        padding-bottom: 3px;
+        background: var(--sl-color-text-accent);
+        color: var(--sl-color-black);
+        font-weight: 600;
+        cursor: pointer;
+    }
+    /* .sign-in-button:hover {
+        background-color: var(--sl-color-purple-dark);
+    } */
+</style>
