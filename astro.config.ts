@@ -46,6 +46,7 @@ export default defineConfig({
 				Sidebar: './src/components/starlight/Sidebar.astro',
 				MobileMenuFooter: './src/components/starlight/MobileMenuFooter.astro',
 				PageTitle: './src/components/starlight/PageTitle.astro',
+				SocialIcons: './src/components/SignIn.astro',
 			},
 			editLink: {
 				baseUrl: 'https://github.com/withastro/docs/edit/main',
