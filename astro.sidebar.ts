@@ -99,7 +99,6 @@ export const sidebar = [
 			// group('reference.syntax', {
 			// 	items: ['reference/astro-syntax', 'reference/directives-reference'],
 			// }),
-			'reference/configuration-reference',
 			group('reference.collections', {
 				items: [
 
