@@ -1,207 +1,252 @@
 ---
-title: Instala y configura Astro
-description: 'Cómo instalar Astro y empezar a trabajar en un proyecto nuevo.'
+title: Instala y configura FlexiCMS
+description: 'Cómo instalar FlexiCMS y empezar a crear tu propio CMS.'
 i18nReady: true
 ---
 import { Tabs, TabItem, FileTree, CardGrid, LinkCard, Steps } from '@astrojs/starlight/components';
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro';
 import ReadMore from '~/components/ReadMore.astro';
 
-El [comando CLI `create astro`](#instala-desde-el-asistente-cli) es la forma más rápida de crear un nuevo proyecto de Astro desde cero.
-Te guiará a través de cada paso de la configuración de tu nuevo proyecto de Astro y te permitirá elegir entre diferentes plantillas de inicio oficiales.
+The [`create astro` CLI command](#install-from-the-cli-wizard) is the fastest way to start a new Astro project from scratch. It will walk you through every step of setting up your new Astro project and allow you to choose from a few different official starter templates. 
 
-O, puedes empezar tu proyecto [utilizando un tema existente o una plantilla de inicio](#usa-un-tema-o-una-plantilla-de-inicio).
+You can also run the CLI command with the `template` flag to begin your project using any existing theme or starter template. Explore our [themes and starters showcase](https://astro.build/themes/) where you can browse themes for blogs, portfolios, documentation sites, landing pages, and more!
 
-Para instalar Astro manualmente, consulta nuestra [guía de instalación manual paso a paso](#configuración-manual).
+To install Astro manually instead, see our [step-by-step manual installation guide](#manual-setup).
 
-:::tip[Previsualización online]
-¿Prefieres probar Astro en tu navegador? Visita [astro.new](https://astro.new/) para explorar nuestras plantillas de inicio y crear un nuevo proyecto de Astro sin salir de tu navegador.
+:::tip[Online previews]
+Prefer to try Astro in your browser? Visit [astro.new](https://astro.new/) to browse our starter templates and spin up a new Astro project without ever leaving your browser.
 :::
 
-## Prerrequisitos
+## Prerequisites
 
-- **Node.js** - `v18.17.1`, `v20.3.0` o superior. ( `v19` no es soportada.)
-- **Editor de código** - Recomendamos [VS Code](https://code.visualstudio.com/) con nuestra [extensión oficial de Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode).
-- **Terminal** - Astro es usado a través de la interfaz de línea de comandos (CLI).
+- **Node.js** - `v18.17.1` or `v20.3.0`, `v22.0.0` or higher. ( `v19` and `v21` are not supported.)
+- **Text editor** - We recommend [VS Code](https://code.visualstudio.com/) with our [Official Astro extension](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode).
+- **Terminal** - Astro is accessed through its command-line interface (CLI).
 
+## Browser compatibility
 
-## Empezar un nuevo proyecto
+Astro is built with Vite which targets browsers with modern JavaScript support by default. For a complete reference, you can see the [list of currently supported browser versions in Vite](https://vite.dev/guide/build.html#browser-compatibility).
 
-### Instala desde el asistente CLI
+## Install from the CLI wizard
+
+You can run `create astro` anywhere on your machine, so there's no need to create a new empty directory for your project before you begin. If you don't have an empty directory yet for your new project, the wizard will help create one for you automatically.
 
 <Steps>
-1. Ejecuta el siguiente comando en tu terminal para iniciar el asistente de instalación:
+1. Run the following command in your terminal to start the install wizard:
 
-    <Tabs>
-      <TabItem label="npm">
+    <PackageManagerTabs>
+      <Fragment slot="npm">
       ```shell
-      # crea un nuevo proyecto con npm
+      # create a new project with npm
       npm create astro@latest
       ```
-      </TabItem>
-      <TabItem label="pnpm">
+      </Fragment>
+      <Fragment slot="pnpm">
       ```shell
-      # crea un nuevo proyecto con pnpm
+      # create a new project with pnpm
       pnpm create astro@latest
       ```
-      </TabItem>
-      <TabItem label="yarn">
+      </Fragment>
+      <Fragment slot="yarn">
       ```shell
-      # crea un nuevo proyecto con yarn
+      # create a new project with yarn
       yarn create astro
       ```
-      </TabItem>
-    </Tabs>
+      </Fragment>
+    </PackageManagerTabs>
 
-    Puedes ejecutar `create astro` desde cualquier lugar de tu máquina, así que no es necesario crear una nueva carpeta vacía para tu proyecto antes de comenzar. Si aún no tienes una carpeta vacía para tu nuevo proyecto, el asistente te ayudará a crear una automáticamente.
+    If all goes well, you will see a success message followed by some recommended next steps.
+    
+2. Now that your project has been created, you can `cd` into your new project directory to begin using Astro.
 
-    Si todo va bien, verás un mensaje de éxito seguido de siguientes pasos recomendados. Ahora que tu proyecto ha sido creado, puedes navegar utilizando `cd` a tu nueva carpeta para comenzar a usar Astro.
+3. If you skipped the "Install dependencies?" step during the CLI wizard, then be sure to install your dependencies before continuing.
 
-2. Si saltaste el paso `npm install` durante el asistente CLI, asegúrate de instalar tus dependencias antes de continuar.
+    <PackageManagerTabs>
+      <Fragment slot="npm">
+      ```shell
+      npm install
+      ```
+      </Fragment>
+      <Fragment slot="pnpm">
+      ```shell
+      pnpm install
+      ```
+      </Fragment>
+      <Fragment slot="yarn">
+      ```shell
+      yarn install
+      ```
+      </Fragment>
+    </PackageManagerTabs>
 
-3. Ahora puedes [iniciar el servidor de desarrollo de Astro](#iniciar-el-servidor-de-desarrollo-de-astro) y ¡ver una vista previa en vivo de tu proyecto mientras lo construyes!
+4. You can now [start the Astro dev server](/en/develop-and-build/#start-the-astro-dev-server) and see a live preview of your project while you build!
 </Steps>
 
-### Usa un tema o una plantilla de inicio
+## CLI installation flags
 
-También puedes empezar un nuevo proyecto de Astro basado en un [ejemplo oficial](https://github.com/withastro/astro/tree/main/examples) o en la rama `main` de cualquier repositorio de GitHub pasando un argumento `--template` al comando `create astro`.
+You can run the `create astro` command with additional flags to customize the setup process (e.g. answering "yes" to all questions, skipping the Houston animation) or your new project (e.g. install git or not, add integrations).
+
+<ReadMore>See [all the available `create astro` command flags](https://github.com/withastro/astro/blob/main/packages/create-astro/README.md)</ReadMore>
+
+### Add integrations
+
+You can start a new Astro project and install any [official integrations](/en/guides/integrations-guide/) or community integrations that support the `astro add` command at the same time by passing the `--add` argument to the `create astro` command.
+
+Run the following command in your terminal, substituting any integration that supports the `astro add` command:
+
+<PackageManagerTabs>
+  <Fragment slot="npm">
+  ```shell
+  # create a new project with React and Partytown
+  npm create astro@latest -- --add react --add partytown
+  ```
+  </Fragment>
+  <Fragment slot="pnpm">
+  ```shell
+  # create a new project with React and Partytown
+  pnpm create astro@latest --add react --add partytown
+  ```
+  </Fragment>
+  <Fragment slot="yarn">
+  ```shell
+  # create a new project with React and Partytown
+  yarn create astro --add react --add partytown
+  ```
+  </Fragment>
+</PackageManagerTabs>
+
+### Use a theme or starter template
+
+You can start a new Astro project based on an [official example](https://github.com/withastro/astro/tree/main/examples) or the `main` branch of any GitHub repository by passing a `--template` argument to the `create astro` command.
+
+Run the following command in your terminal, substituting the official Astro starter template name, or the GitHub username and repository of the theme you want to use:
+
+<PackageManagerTabs>
+  <Fragment slot="npm">
+  ```shell
+  # create a new project with an official example
+  npm create astro@latest -- --template <example-name>
+
+  # create a new project based on a GitHub repository’s main branch
+  npm create astro@latest -- --template <github-username>/<github-repo>
+  ```
+  </Fragment>
+  <Fragment slot="pnpm">
+  ```shell
+  # create a new project with an official example
+  pnpm create astro@latest --template <example-name>
+  
+  # create a new project based on a GitHub repository’s main branch
+  pnpm create astro@latest --template <github-username>/<github-repo>
+  ```
+  </Fragment>
+  <Fragment slot="yarn">
+  ```shell
+  # create a new project with an official example
+  yarn create astro --template <example-name>
+  
+  # create a new project based on a GitHub repository’s main branch
+  yarn create astro --template <github-username>/<github-repo>
+  ```
+  </Fragment>
+</PackageManagerTabs>
+
+By default, this command will use the template repository’s `main` branch. To use a different branch name, pass it as part of the `--template` argument: `<github-username>/<github-repo>#<branch>`.
+
+## Manual Setup
+
+This guide will walk you through the steps to manually install and configure a new Astro project.
+
+If you prefer not to use our automatic `create astro` CLI tool, you can set up your project yourself by following the guide below.
 
 <Steps>
-1. Explora nuestro [escaparate de temas y plantillas de inicio](https://astro.build/themes/) donde puedes navegar por temas para blogs, portafolios, sitios de documentación, páginas landing y más. O, [busca en GitHub](https://github.com/search?o=desc&q=astro+starter&s=stars&type=Repositories) para encontrar aún más proyectos de inicio.
+1. Create your directory
 
-2. Ejecuta el siguiente comando en tu terminal, sustituyendo el nombre de la plantilla de inicio oficial de Astro, o el nombre de usuario de GitHub y el repositorio del tema que quieras usar:
-
-    <Tabs>
-      <TabItem label="npm">
-      ```shell
-      # crea un nuevo proyecto con un ejemplo oficial
-      npm create astro@latest -- --template <example-name>
-
-      # crea un nuevo proyecto basado en la rama principal de un repositorio de GitHub
-      npm create astro@latest -- --template <github-username>/<github-repo>
-      ```
-      </TabItem>
-      <TabItem label="pnpm">
-      ```shell
-      # crea un nuevo proyecto con un ejemplo oficial
-      pnpm create astro@latest --template <example-name>
-
-      # crea un nuevo proyecto basado en la rama principal de un repositorio de GitHub
-      pnpm create astro@latest --template <github-username>/<github-repo>
-      ```
-      </TabItem>
-      <TabItem label="yarn">
-      ```shell
-      # crea un nuevo proyecto con un ejemplo oficial
-      yarn create astro --template <example-name>
-
-      # crea un nuevo proyecto basado en la rama principal de un repositorio de GitHub
-      yarn create astro --template <github-username>/<github-repo>
-      ```
-      </TabItem>
-    </Tabs>
-
-    Por defecto, este comando usará la rama `main` del repositorio de la plantilla. Para usar un nombre de rama diferente, pásalo como parte del argumento `--template`: `<github-username>/<github-repo>#<branch>`.
-
-3. Responde las preguntas y sigue las instrucciones del asistente CLI.
-
-4. Ahora puedes [iniciar el servidor de desarrollo de Astro](#iniciar-el-servidor-de-desarrollo-de-astro) y ¡ver una vista previa en vivo de tu proyecto mientras lo construyes!
-</Steps>
-
-### Configuración manual
-
-Esta guía te guiará a través de los pasos para instalar y configurar manualmente un nuevo proyecto de Astro.
-
-Si prefieres no utilizar nuestra herramienta automática CLI `create astro`, puedes configurar tu proyecto siguiendo la guía que se detalla a continuación.
-
-<Steps>
-1. Crea una carpeta
-
-    Crea una carpeta vacía con el nombre de tu proyecto y navega hacia ella.
+    Create an empty directory with the name of your project, and then navigate into it.
 
     ```bash
     mkdir my-astro-project
     cd my-astro-project
     ```
 
-    Ya en la carpeta, crea un archivo `package.json` para tu proyecto. Esto te ayudará a gestionar las dependencias del proyecto, incluyendo Astro. Si no estás familiarizado con este formato de archivo, ejecuta el siguiente comando para crear uno.
+    Once you are in your new directory, create your project `package.json` file. This is how you will manage your project dependencies, including Astro. If you aren't familiar with this file format, run the following command to create one.
 
-    <Tabs>
-      <TabItem label="npm">
+    <PackageManagerTabs>
+      <Fragment slot="npm">
       ```shell
       npm init --yes
       ```
-      </TabItem>
-      <TabItem label="pnpm">
+      </Fragment>
+      <Fragment slot="pnpm">
       ```shell
-      pnpm init
+      pnpm init 
       ```
-      </TabItem>
-      <TabItem label="yarn">
+      </Fragment>
+      <Fragment slot="yarn">
       ```shell
       yarn init --yes
       ```
-      </TabItem>
-    </Tabs>
+      </Fragment>
+    </PackageManagerTabs>
 
+2. Install FlexiCMS
 
-
-2. Instala Astro
-
-    Primero, instala Astro dentro de tu proyecto.
+    First, install the Astro project dependencies inside your project.
 
     :::note[Important]
-    Astro debe ser instalado localmente, no globalmente. Asegúrate de *no* ejecutar `npm install -g astro`, `pnpm add -g astro` o `yarn add global astro`.
+    Astro must be installed locally, not globally. Make sure you are *not* running `npm install -g astro` `pnpm add -g astro` or `yarn add global astro`.
     :::
 
-    <Tabs>
-      <TabItem label="npm">
+    <PackageManagerTabs>
+      <Fragment slot="npm">
       ```shell
       npm install astro
       ```
-      </TabItem>
-      <TabItem label="pnpm">
+      </Fragment>
+      <Fragment slot="pnpm">
       ```shell
       pnpm add astro
       ```
-      </TabItem>
-      <TabItem label="yarn">
+      </Fragment>
+      <Fragment slot="yarn">
       ```shell
       yarn add astro
       ```
-      </TabItem>
-    </Tabs>
+      </Fragment>
+    </PackageManagerTabs>
 
-    A continuación, reemplaza los scripts creados por defecto en el `package.json` por los siguientes:
+    Then, replace any placeholder "scripts" section of your `package.json` with the following:
 
-    ```json title="package.json" del={2} ins={3-6}
+    ```json title="package.json" del={3} ins={4-6}
+    {
       "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "astro dev",
-        "start": "astro dev",
         "build": "astro build",
         "preview": "astro preview"
       },
+    }
     ```
 
-    Los scripts serán usados más adelante en la guía para iniciar y ejecutar diferentes comandos en Astro.
+    You'll use these scripts later in the guide to start Astro and run its different commands.
 
-3. Crea tu primera página
+3. Create your first page
 
-    En tu editor de código, crea un nuevo archivo en el directorio `src/pages/index.astro`. Esta será tu primera página de Astro en el proyecto.
+    In your text editor, create a new file in your directory at `src/pages/index.astro`. This will be your first Astro page in the project.
 
-    Copia y pega el siguiente fragmento de código (incluyendo `---` guiones) en tu nuevo archivo:
+    For this guide, copy and paste the following code snippet (including `---` dashes) into your new file:
 
     ```astro title="src/pages/index.astro"
     ---
-    // ¡Bienvenido a Astro! Todo entre los guiones triples son los
-    // "metadatos de tu componente". Nunca se ejecuta en el navegador.
-    console.log('¡Esto se ejecuta en tu terminal y no en el navegador!');
+    // Welcome to Astro! Everything between these triple-dash code fences
+    // is your "component frontmatter". It never runs in the browser.
+    console.log('This runs in your terminal, not the browser!');
     ---
-    <!-- El código de abajo es "la plantilla de su componente". Es solo HTML
-         con un poco de magia que te ayudará a crear la plantilla del componente. -->
+    <!-- Below is your "component template." It's just HTML, but with
+        some magic sprinkled in to help you build great templates. -->
     <html>
       <body>
-        <h1>¡Hola Mundo!</h1>
+        <h1>Hello, World!</h1>
       </body>
     </html>
     <style>
@@ -211,45 +256,45 @@ Si prefieres no utilizar nuestra herramienta automática CLI `create astro`, pue
     </style>
     ```
 
-4. Crea tu primer archivo estático
+4. Create your first static asset
 
-    Crea una carpeta `public` en la raíz de tu proyecto para almacenar todos los archivos estáticos. Astro incluirá estos archivos en la compilación final, así podrán ser referenciados de forma segura desde tus componentes.
+    You will also want to create a `public/` directory to store your static assets. Astro will always include these assets in your final build, so you can safely reference them from inside your component templates.
 
-    Crea un nuevo archivo en el directorio `public/robots.txt`. `robots.txt` es un archivo que informa a los robots de búsqueda, como Google, sobre cómo indexar tu página web.
+    In your text editor, create a new file in your directory at `public/robots.txt`. `robots.txt` is a simple file that most sites will include to tell search bots like Google how to treat your site.
 
-    Copia y pega el siguiente fragmento de código:
+    For this guide, copy and paste the following code snippet into your new file:
 
     ```diff title="public/robots.txt"
-    # Example: Permitir a todos los bots de búsqueda escanear e indexar el sitio web.
+    # Example: Allow all bots to scan and index your site.
     # Full syntax: https://developers.google.com/search/docs/advanced/robots/create-robots-txt
     User-agent: *
     Allow: /
     ```
 
-5. Crea `astro.config.mjs`
+5. Create `astro.config.mjs`
 
-    Astro es configurado usando el archivo `astro.config.mjs`. Este archivo es opcional si no necesitas configurar Astro, pero recomendamos crear uno ahora.
+    Astro is configured using `astro.config.mjs`. This file is optional if you do not need to configure Astro, but you may wish to create it now.
 
-    Crea un archivo `astro.config.mjs` en la raíz del proyecto y copia el siguiente código dentro de él:
+    Create `astro.config.mjs` at the root of your project, and copy the code below into it:
 
     ```js title="astro.config.mjs"
-    import { defineConfig } from 'astro/config';
+    import { defineConfig } from "astro/config";
 
     // https://astro.build/config
     export default defineConfig({});
     ```
 
-    Si deseas incluir [componentes de frameworks](/es/guides/framework-components/) como React, Svelte, etc.; o usar otras herramientas de desarrollo como Tailwind o Partytown en tu proyecto, lee nuestra [guía de integraciones](/es/guides/integrations-guide/).
+    If you want to include [UI framework components](/en/guides/framework-components/) such as React, Svelte, etc. or use other tools such as MDX or Partytown in your project, here is where you will [manually import and configure integrations](/en/guides/integrations-guide/).
 
-    Lee nuestra guía de [configuración de API](/es/reference/configuration-reference/) para más información.
+    Read Astro's [API configuration reference](/en/reference/configuration-reference/) for more information.
 
-6. Agrega soporte para TypeScript
+6. Add TypeScript support
 
-    TypeScript es configurado usando `tsconfig.json`. Aun si tú no escribes código en TypeScript, este archivo es importante para que herramientas como Astro y VS Code sepan cómo comprender tu proyecto. Algunas características (como importaciones de paquetes npm) no tienen un soporte completo en el editor sin el archivo `tsconfig.json`.
+    TypeScript is configured using `tsconfig.json`. Even if you don’t write TypeScript code, this file is important so that tools like Astro and VS Code know how to understand your project. Some features (like npm package imports) aren’t fully supported in the editor without a `tsconfig.json` file. 
 
-    Si pretendes escribir código en TypeScript, recomendamos usar las plantillas de Astro `strict` o `strictest`. Puedes ver y comparar las tres configuraciones de las plantillas en [astro/tsconfigs/](https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/).
+    If you do intend to write TypeScript code, using Astro's `strict` or `strictest` template is recommended. You can view and compare the three template configurations at [astro/tsconfigs/](https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/).
 
-    Crea un archivo `tsconfig.json` en la raíz del proyecto y copia el siguiente código dentro de él. (Puedes usar `base`, `strict` o `strictest` para tu maquetado de TypeScript):
+    Create `tsconfig.json` at the root of your project, and copy the code below into it. (You can use `base`, `strict`, or `strictest` for your TypeScript template):
 
     ```json title="tsconfig.json" "base"
     {
@@ -257,17 +302,11 @@ Si prefieres no utilizar nuestra herramienta automática CLI `create astro`, pue
     }
     ```
 
-    Finalmente, crea un archivo `src/env.d.ts` para que TypeScript infiera los tipos disponibles en un proyecto de Astro.
+    Read Astro's [TypeScript setup guide](/en/guides/typescript/#setup) for more information.
 
-    ```ts title="src/env.d.ts"
-    /// <reference types="astro/client" />
-    ```
+7. Next Steps
 
-    Lee nuestra [guía para configurar TypeScript](/es/guides/typescript/#configuración) para más información.
-
-7. Siguientes pasos
-
-    Si has seguido las instrucciones anteriores, el proyecto debe lucir así:
+    If you have followed the steps above, your project directory should now look like this:
 
     <FileTree>
     - node_modules/
@@ -276,146 +315,12 @@ Si prefieres no utilizar nuestra herramienta automática CLI `create astro`, pue
     - src/
       - pages/
         - index.astro
-      - env.d.ts
     - astro.config.mjs
-    - package-lock.json o `yarn.lock`, `pnpm-lock.yaml`, etc.
+    - package-lock.json or `yarn.lock`, `pnpm-lock.yaml`, etc.
     - package.json
     - tsconfig.json
     </FileTree>
 
-8. Ahora puedes [iniciar el servidor de desarrollo de Astro](#iniciar-el-servidor-de-desarrollo-de-astro) y ¡ver una vista previa en vivo de tu proyecto mientras lo construyes!
+8. You can now [start the Astro dev server](/en/develop-and-build/#start-the-astro-dev-server) and see a live preview of your project while you build!
 
 </Steps>
-
-
-## Iniciar el servidor de desarrollo de Astro
-
-    Astro posee un servidor de desarrollo que tiene todo lo que necesitas para desarrollar tu proyecto. El comando `astro dev` iniciará el servidor de desarrollo local para que veas tu nuevo proyecto en acción por primera vez.
-
-    Cada plantilla de inicio posee un script preconfigurado que ejecutará `astro dev` por ti. Utiliza tu gestor de paquetes favorito para ejecutar este comando e iniciar el servidor de desarrollo de Astro.
-
-    <Tabs>
-      <TabItem label="npm">
-      ```shell
-      npm run dev
-      ```
-      </TabItem>
-      <TabItem label="pnpm">
-      ```shell
-      pnpm run dev
-      ```
-      </TabItem>
-      <TabItem label="yarn">
-      ```shell
-      yarn run dev
-      ```
-      </TabItem>
-    </Tabs>
-
-Si todo va bien, Astro servirá tu proyecto en [http://localhost:4321](http://localhost:4321). ¡Visita ese enlace en tu navegador y verás tu nuevo sitio!
-
-## Trabajando en modo desarrollo
-
-Astro escuchará cualquier cambio en la carpeta `src/` y actualizará automáticamente tu proyecto. De esta forma, no será necesario reiniciar el servidor local durante el desarrollo. Siempre verás la versión más reciente de tu proyecto en tu navegador mientras el servidor de desarrollo esté en ejecución.
-
-Cuando visualices tu sitio en el navegador, tendrás acceso a la [barra de herramientas de desarrollo de Astro](/es/guides/dev-toolbar/). A medida que construyas, te ayudará a inspeccionar tus [islas](/es/concepts/islands/), detectar problemas de accesibilidad y mucho más.
-
-Si no es posible abrir el proyecto en el navegador, regresa a la terminal donde has ejecutado el comando `dev` y chequea si ha ocurrido algún error o si tu proyecto está siendo servido en una URL diferente a la mencionada anteriormente. Deberías ver un mensaje si ha ocurrido algún error, o si tu proyecto está siendo servido en una URL diferente a [http://localhost:4321/](http://localhost:4321/).
-
-## Construye y previsualiza tu sitio
-
-Para comprobar la versión de tu sitio que será creada en tiempo de compilación, detén el servidor de desarrollo (<kbd>Ctrl</kbd> + <kbd>C</kbd>) y ejecuta el comando de construcción apropiado para tu gestor de paquetes en la terminal:
-
-    <Tabs>
-      <TabItem label="npm">
-      ```shell
-      npm run build
-      ```
-      </TabItem>
-      <TabItem label="pnpm">
-      ```shell
-      pnpm build
-      ```
-      </TabItem>
-      <TabItem label="yarn">
-      ```shell
-      yarn run build
-      ```
-      </TabItem>
-    </Tabs>
-
-Astro creará una versión de tu sitio lista para ser desplegada en una carpeta separada (`dist/` por defecto) y visualizará el progreso en la terminal. Esto te alertará de cualquier error de compilación en tu proyecto antes de desplegarlo en producción. Si TypeScript está configurado en `strict` o `strictest`, el script `build` también comprobará tu proyecto en busca de errores de tipado.
-
-Cuando la construcción finalice, ejecuta el comando `preview` (por ejemplo, `npm run preview`) en tu terminal y podrás ver la versión construida de tu sitio en el navegador.
-
-Ten en cuenta que esta previsualización de tu código es como existía cuando se ejecutó por última vez el comando de construcción. Esto está pensado para darte una vista previa de cómo se verá tu sitio cuando sea [desplegado en la web](#despliega-tu-sitio). Cualquier cambio posterior que realices en tu código después de la construcción **no** se reflejará mientras previsualices tu sitio hasta que vuelvas a ejecutar el comando de construcción.
-
-Utiliza (<kbd>Ctrl</kbd> + <kbd>C</kbd>) para salir de la previsualización y ejecutar otro comando en la terminal, como reiniciar el servidor de desarrollo para volver a [trabajar en modo desarrollo](#trabajando-en-modo-desarrollo) que se actualiza a medida que editas para mostrar una vista previa en vivo de tus cambios de código.
-
-<ReadMore>Lee más acerca [del CLI de Astro](/es/reference/cli-reference/) y los comandos de terminal que usarás mientras desarrollas con Astro.</ReadMore>
-
-## Despliega tu sitio
-
-Puede que quieras [desplegar tu nuevo sitio inmediatamente](/es/guides/deploy/), antes de comenzar a añadir o cambiar mucho código. Esto es útil para publicar una versión mínima y funcional de tu sitio que puede ahorrarte tiempo y esfuerzo extra al solucionar problemas con tu despliegue más adelante.
-
-## Siguientes pasos
-
-¡Genial! ¡Ahora estás listo para empezar a construir con Astro! 🥳
-
-Aquí te dejamos algunas sugerencias para explorar a continuación. Puedes leerlas en cualquier orden, ¡incluso puedes dejar de lado la documentación por un momento y comenzar a experimentar con el código base de tu nuevo proyecto de Astro! Siempre puedes volver aquí cuando tengas dudas o necesites ayuda.
-
-### Explora las funcionalidades de Astro
-
-<CardGrid>
-  <LinkCard
-    title="Estructura de proyecto"
-    description="Aprende cómo estructurar un proyecto en Astro."
-    href="/es/basics/project-structure/"
-  />
-  <LinkCard
-    title="Agrega integraciones"
-    description="Añade contenido a tu nuevo sitio con validaciones de los metadatos de los componentes y seguridad de tipos automática."
-    href="/es/guides/integrations-guide/"
-  />
-    <LinkCard
-    title="Agrega transiciones de vista"
-    description="Crea transiciones y animaciones de página fluidas."
-    href="/es/guides/view-transitions/"
-  />
-  <LinkCard
-    title="Aprende sobre Islas"
-    description="Lee acerca de la arquitectura de las Islas Astro."
-    href="/es/concepts/islands/"
-  />
-</CardGrid>
-
-
-### Configura tu entorno de desarrollo
-
-<CardGrid>
-  <LinkCard
-    title="Configuración del editor de código"
-    description="Configura tu editor de código para mejorar tu experiencia de desarrollo con Astro y desbloquear nuevas funcionalidades."
-    href="/es/editor-setup/"
-  />
-   <LinkCard
-    title="TypeScript"
-    description="¡Configura el soporte TypeScript integrado de Astro para que sea tan estricto o flexible como lo desees!"
-    href="/es/guides/typescript/"
-  />
-  <LinkCard
-    title="Alias de importación"
-    description="Crea accesos directos convenientes para tus importaciones de archivos."
-    href="/es/guides/imports/#alias"
-  />
-  <LinkCard
-    title="Variables de entorno"
-    description="Establece y usa variables de entorno en tu proyecto."
-    href="/es/guides/environment-variables/"
-  />
-    <LinkCard
-    title="Barra de herramientas de desarrollo"
-    description="Explora las útiles funciones de la barra de herramientas de desarrollo."
-    href="/es/guides/dev-toolbar/"
-  />
-</CardGrid>
