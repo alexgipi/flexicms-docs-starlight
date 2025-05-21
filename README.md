@@ -1,76 +1,51 @@
-# FlexiCMS Docs <picture><source media="(prefers-color-scheme: dark)" srcset="https://astro.build/assets/press/astro-icon-light.png"><source media="(prefers-color-scheme: light)" srcset="https://astro.build/assets/press/astro-icon-dark.png"><img align="right" valign="center" height="79" width="63" src="https://astro.build/assets/press/astro-icon-dark.png" alt="Astro logo" /></picture>
+# FlexiCMS Docs
 
+Documentación oficial de [ꟻlexiCMS](https://flexicms.dev), el CMS headless totalmente personalizable para construir tus propias plataformas de administración y APIs a medida.
 
-To all who come to this happy place: welcome.
+Desarrollada en **[Starlight](https://starlight.astro.build/)**, el generador de documentación de Astro, y basada en el repositorio oficial de la documentación de [Astro](https://github.com/withastro/docs), esta guía ofrece una experiencia de lectura clara, estructurada y fácil de mantener.
 
-This is the repo for [docs.astro.build](https://docs.astro.build/).
-This repo contains all the source code we use to build our docs site.
+## 📚 ¿Qué encontrarás aquí?
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/withastro/docs)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/withastro/docs)
-[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https://pr.new/github.com/withastro/docs)
+- 🔧 Guía de instalación y configuración inicial (`flexi.config.js`)
+- 📦 Estructura base de un proyecto FlexiCMS
+- 🧩 Campos disponibles: textos, relaciones, arrays, editores visuales, etc.
+- 🔐 Gestión de usuarios, roles y control de acceso
+- 🪝 Uso de hooks para lógica personalizada (GET, POST, PUT, DELETE)
+- 🎨 Personalización del panel: temas, estilos, layout, bloques visuales
+- 🌐 Integración con Clerk y despliegue con GitHub Actions
+- 🧪 Ejemplos prácticos: blog, ecommerce, e-learning, etc.
 
-## We are Astro
+Todo explicado con ejemplos claros y snippets reutilizables.
 
-Astro is an all-in-one web framework for building fast, content-focused websites.
-We want everyone to be successful building sites, and that means helping everyone understand how Astro works.
+## 🚀 Cómo usarla
 
-## You are Awesome
+Simplemente visita:
 
-You can also help make the docs awesome.
-Your feedback is welcome.
-Your writing, editing, translating, designing, and developing skills are welcome.
-You being a part of our community is welcome.
+🔗 [https://docs-flexicms.vercel.app](https://docs-flexicms.vercel.app)
 
-## Chat with Us
+O clona este repositorio si quieres editar o contribuir a la documentación:
 
-You can learn more about Astro, get support, and meet other devs in [our Discord community](https://astro.build/chat).
+```bash
+git clone https://github.com/flexicms/flexicms-docs-starlight.git
+cd flexicms-docs-starlight
+npm install
+npm run dev
+```
 
-## Raise an Issue
+Requiere Node.js 18 o superior
 
-Is something missing?
-Is something confusing?
-Is something wrong?
+---
 
-Creating a new Issue puts a problem on our radar!
+### 🛠 ¿Qué es FlexiCMS?
 
-[See if your issue has already been reported](https://github.com/withastro/docs/issues), and if not, [create a new one](https://github.com/withastro/docs/issues/new/choose).
+FlexiCMS es un CMS headless modular y open-source que permite crear plataformas personalizadas con una API y panel de administración totalmente configurable, todo desde un único archivo `flexi.config.js`.
 
-## Share an Idea
+---
 
-Could something be better?
-Want to share an idea with us?
+### 📄 Licencia
 
-Discussions are threads where you can offer feedback on things that might not exactly be problems to be fixed but are ideas to be explored. 
+MIT
 
-[Join the Docs Discussions](https://github.com/withastro/docs/discussions) where we brainstorm, ask questions, share hopes and dreams...
+---
 
-## Make a Fix or Contribution
-
-Did you find a typo, a broken link, or another item with an obvious quick fix?
-
-If you can see what the problem is, and you know how to fix it, then you can make a PR (pull request) with the change and contribute to the docs repo yourself.
-
-> Want to make a larger contribution? Please see [CONTRIBUTING.md](https://github.com/withastro/docs/blob/main/CONTRIBUTING.md) first! 
-
-## Translate a Page
-
-Speak another language natively? 
-
-Join our i18n gang on Discord or jump into the PRs to help with reviewing existing draft translations!
-
-Check out the dedicated [i18n guide](https://contribute.docs.astro.build/guides/i18n/) for more details.
-
-### Translation progress
-
-<a href="https://i18n.docs.astro.build/">
-  <img alt="Details of each language’s progress translating the FlexiCMS Docs" width="600" src="https://i18n.docs.astro.build/summary.svg" />
-</a>
-
-## Next Steps
-
-- [Read the docs](https://docs.astro.build/)
-- [Raise an issue](https://github.com/withastro/docs/issues/new)
-- [Participate in a discussion](https://github.com/withastro/docs/discussions)
-- [Join the #docs channel on Discord](https://discord.gg/cZDZU3hJHc)
-
+Desarrollado con ❤️ por Alex Giménez Piqué.
